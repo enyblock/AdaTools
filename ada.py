@@ -7,7 +7,6 @@
 #https://otcbtc.com/sell_offers?currency=eth&fiat_currency=cny&payment_type=all
 #10000 ==> 1819.23 
 
-
 import re
 import time
 import requests
@@ -17,9 +16,6 @@ from bs4 import BeautifulSoup
 URL_BINANCE = 'https://api.binance.com/api/v1/trades'
 URL_OTCBTC_START  = 'https://otcbtc.com/sell_offers?currency='
 URL_OTCBTC_END    = '&fiat_currency=cny&payment_type=all'
-
-
-
 
 def get_binance(type):
 	r = requests.get(URL_BINANCE, params = {'symbol':'ADA'+type.upper()})
@@ -54,28 +50,3 @@ loop_show()
 
 # print(get_binance('eth'))
 # print(get_otcbtc('eth'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
