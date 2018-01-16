@@ -29,9 +29,10 @@ def get_otcbtc(type):
 	return float(t_num_str)
 
 def calculate_ada_num(orig, bin_p, otcbtc_p):
-	ada_num = orig/otcbtc_p
+	ada_num = orig/otcbtc_p-0.001
 	ada_num /= bin_p
-	return ada_num
+	ada_num *= 0.999
+	return (ada_num-1)
 
 def show_msg(orig, type):
 
@@ -39,7 +40,7 @@ def show_msg(orig, type):
 	t_otcbtc_p = get_otcbtc(type)
 	t_ada_num  = calculate_ada_num(orig, t_bin_p, t_otcbtc_p)
 
-	print '{} CNY ==> {} ==> ADA : {}'.format(orig, type.upper(), t_ada_num)
+	print '{} CNY {:.2f} ==> {:^8d} {} ==> {:.8f} ADA : {}'.format(orig, orig/t_ada_num, int(t_otcbtc_p), type.upper(), t_bin_p, t_ada_num)
 	
 
 def loop_show():
